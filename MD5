@@ -1,8 +1,10 @@
-9b09ef4624332834f37b521e80a81f70 *DESCRIPTION
+7ff05c7c5bcc3d542d5b4b4bef9acfd9 *DESCRIPTION
 df390c53434517b304ac5db487184641 *NAMESPACE
 de6e991b0ec7b88688a7634849375793 *R/SetUp.R
 e2460c531b6f287411343e60ee7896db *R/getFileInformation.R
-ed8f71adbd43753450d81b8148ca0740 *R/readBestData.R
+f5f2eceb722c6b35e61a95a6457eaa67 *R/readAsArray.R
+2b07feb4606b723d64e2f68fcd45cd7e *R/readBerkeleyData.R
+f89da70342db7326474d35963285735d *R/readBerkeleyTemp.R
 6b75a312f01ee9a202951b92e1f8aa8f *R/readCharacterization.R
 2fd4f3e0754c7f8ce8e1e8a152edbc4c *R/readFlagDefine.R
 517f3dec394aa988d9364edbc1ed5e6e *R/readFlags.R
@@ -13,9 +15,11 @@ e8a14d248f7d6ee178c4bd07e3baa6b6 *R/readSiteFlagDefine.R
 81aa99cdfdbc99e5c9c79f2f286d013e *R/readSiteSummary.R
 6cf3433b491a829a05199b749b07bf4e *R/readSourceFlagDefine.R
 02e111174da08c3d3b5afa1c92f9444c *R/readSources.R
-1bcabe6f763632dd61ce1da2a32defcc *man/BerkeleyEarth-package.Rd
+32e5e608019f87a85d5ef5873f14aad3 *man/BerkeleyEarth-package.Rd
 4b02c19cb2631b88955733f5626c69ca *man/getFileInformation.Rd
-a4ab26dda92084e3c17fc27c80c8572d *man/readBestData.Rd
+7712cfb75015aaeafe246766e764b0b9 *man/readAsArray.Rd
+0992f8b48d08308540e540515b6735d4 *man/readBerkeleyData.Rd
+069c6a8724124647f4a69a2d00c3a91c *man/readBerkeleyTemp.Rd
 3a808b8fc024fd8019c6a7595452c6eb *man/readCharacterization.Rd
 b004c4d075941529d79d0f30e4b5e398 *man/readFlagDefine.Rd
 56fcf73cf111a7651cc49bf54bb8d279 *man/readFlags.Rd
