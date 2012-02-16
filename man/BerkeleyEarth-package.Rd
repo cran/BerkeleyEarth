@@ -16,8 +16,8 @@
 \tabular{ll}{
 Package: \tab BerkeleyEarth\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2012-02-07\cr
+Version: \tab 1.3\cr
+Date: \tab 2012-02-16\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab FALSE\cr
@@ -66,7 +66,7 @@ Maintainer: Steven Mosher <moshersteven@gmail.com>
 }
  
 \section{Acknowledgements}{
-  Special thanks to Richard Muller, Robert Rhode and the entire Berekely Earth Team.
+  Special thanks to Richard Muller, Robert Rhode and the entire Berekeley Earth Team.
   Also, none of this work would be possible without the inspiration, encouragement
   and help of Steve McIntyre, Zeke Hausfather, Nick Stokes, Jeff Condon and RomanM
 }

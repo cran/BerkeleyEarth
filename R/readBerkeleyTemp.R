@@ -1,5 +1,5 @@
  
- readBerkeleyTemp <- function(Directory, tempFname = "temperature.bin"){ 
+ readBerkeleyTemp <- function(Directory, buffer = 500000,tempFname = "temperature.bin"){ 
    
   getRow <- function(berkDate, minYear){
     
@@ -43,13 +43,25 @@
    
   
   startTime <- Sys.time()
-  for(dataLine in 1:nrow(D)){
-     
-     
-    Temp[getRow(D[dataLine,"Date"],minYear),as.integer(D[dataLine,"Id"])] <- D[dataLine,"Temp"]   
+  nlines <- nrow(D)
+  linesRead <- 0 
+  while(linesRead < nlines){
+    startLine <- linesRead + 1
+    endLine   <- startLine + buffer
+    if(endLine > nlines)endLine <- nlines
+    block <- D[startLine:endLine,]
+    for(dataLine in 1:nrow(block)){
+      Temp[getRow(block[dataLine,"Date"],minYear),
+           as.integer(block[dataLine,"Id"])] <- block[dataLine,"Temp"]   
+      
+    }
+    flush(Temp)
+    print("Flushing Block")
+    linesRead <- endLine
     
-    if(dataLine %% 100000 == 0){ flush(Temp); print("flushed")}
   }
+  
+   
   print(Sys.time()-startTime)         
  
   return(Temp)
