@@ -1,19 +1,19 @@
 readSiteComplete  <- function(Directory, filename= "site_complete_detail.txt") {
   
  
-  
+   
   X <- read.delim(file.path(Directory,filename, fsep = .Platform$file.sep), 
-                  skip = 207, 
+                  comment.char = "%", 
                   quote ="", 
-                  stringsAsFactors = FALSE)
+                  stringsAsFactors = FALSE, header = FALSE)
   
   colnames(X)<- c("Id","ReportNo","Name", "Country","StartDate","EndDate","Source", 
                    "Lat","Lon" ,"Altitude" ,"AltElevation","LatUnc","LonUnc","AltUnc",
                   "ReloFlag","State","County","Tzone","WMO","COOP","WBAN","ICOA",
                   "USAF","NCDC","Instrument","OtherId","ArchiveKey","Hash")
   
-  X$Lat[X$Lat < -999]              <- NA
-  X$Lon[X$Lon < -999]              <- NA
+  X$Lat[X$Lat == -999]              <- NA
+  X$Lon[X$Lon == -999]              <- NA
   X$Altitude[X$Altitude == -999]   <- NA
   X$AltElevation[X$AltElevation == -999]   <- NA
   X$StartDate[X$StartDate == -9999] <-NA

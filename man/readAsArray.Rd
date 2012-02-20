@@ -5,8 +5,12 @@
  
 }
 \description{This function will return a 3D array of stations, months
- and years. If you are working with less than 4GB of RAM it will be a 
- tight fit into memory.
+ and years from data.txt. If you are working with less than 4GB of RAM it will be a 
+ tight fit into memory. Since the function assume that every station
+ only has one series associated with it, it will not work with the multi
+ value files. It is designed to work with the 4 varieties of single-valued
+ files. An exception is thrown if you try to read a multi-valued file.
+ For multi-value files use \code{readBerkeleyData}
  The 3D array is used by RghcnV3 functions. In future releases this
  will be upgraded to create a file backed matrix on initial read.
  
@@ -20,8 +24,8 @@ readAsArray(Directory, filename = "data.txt")
    \code{choose.dir() as a simple way to get the directory}
  
 }
-  \item{filename}{ default name is "data.tx" Changing this is
-    not recommended
+  \item{filename}{ default name is "data.txt" Changing this is
+    not recommended. 
  
 }
 }

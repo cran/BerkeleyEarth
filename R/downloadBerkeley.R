@@ -19,5 +19,7 @@ downloadBerkeley <- function(urls = BerkeleyUrls){
     
   }
   
+  makeBinFiles()
+  
   
 }

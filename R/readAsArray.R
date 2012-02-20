@@ -1,4 +1,4 @@
-readAsArray <- function(Directory , filename="data.txt" ){ 
+readAsArray <- function(Directory , filename = "data.txt" ){ 
   require(RghcnV3)
   
   indexGen <- function(dataLine,minYear){  
@@ -7,8 +7,21 @@ readAsArray <- function(Directory , filename="data.txt" ){
     Month <- round(Frac*12+ .5)   
     return( c(  Month  , Year-minYear) )
   }
+  isMultiValue <- function(Directory){
+    
+    X <- readLines(file.path(Directory,"data.txt", fsep = .Platform$file.sep),n = 4)
+    Multi <- grepl("Multi", X[4], fixed = TRUE)
+    return(Multi)    
+  }
   
-  
+  FileType <- isMultiValue(Directory)
+  if(FileType == TRUE) {
+    print(" this function only works on single value files")
+    print(" it does not work on multi value files")
+    print(" the multi value version of data.txt can be read")
+    print(" with the function readBerkeleyData")
+    stop("data.txt is a multi valued file")
+  }
   x  <- file.path(Directory,filename, fsep =.Platform$file.sep)
   D  <- as.matrix( read.delim(x, skip = 111, 
                               colClasses = c("numeric","NULL","numeric","numeric",

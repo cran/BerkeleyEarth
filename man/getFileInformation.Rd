@@ -34,7 +34,12 @@ getFileInformation(Directory)
  the readme.
  
 }
-\value{Side effects consist of writing several new files to the directory
+\value{Side effects consist of writing several new files to the directory.
+ a new directory of readme files are created and a file is written to record
+ the file information. A data frame of file information is returned.
+ That includes the filename, the data type ( single or multi value), the number
+ of input lines that are skipped ( comments before the data) and the
+ file hash code
  
 }
  

@@ -1,16 +1,17 @@
 readSiteDetail <- function(Directory, filename= "site_detail.txt"){ 
 
+   
    X <- read.delim(file.path(Directory,filename, fsep = .Platform$file.sep), 
-                   skip = 149, 
+                   comment.char= "%", 
                    quote ="", 
-                   stringsAsFactors = FALSE)
+                   stringsAsFactors = FALSE,header = FALSE)
 
    colnames(X)<- c("Id","Name", "Lat","Lon" ,"Altitude" ,"LatUnc","LonUnc","AltUnc",
                  "Country","State","County","Tzone","WMO","COOP","WBAN","ICOA",
                    "Relo","SugRelo","Sources","Hash")
 
-   X$Lat[X$Lat < -100]              <- NA
-   X$Lon[X$Lon < -200]              <- NA
+   X$Lat[X$Lat == -999]              <- NA
+   X$Lon[X$Lon == -999]              <- NA
    X$Altitude[X$Altitude == -999]   <- NA
    X$LatUnc[X$LatUnc == -9.99999]   <- NA
    X$LonUnc[X$LonUnc == -9.99999]   <- NA

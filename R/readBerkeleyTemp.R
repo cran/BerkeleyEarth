@@ -10,11 +10,33 @@
     
     return(as.integer(Offset + Month))
   }
+  
+  isMultiValue <- function(Directory){
+      
+     X <- readLines(file.path(Directory,"data.txt", fsep = .Platform$file.sep),n = 4)
+     Multi <- grepl("Multi", X[4], fixed = TRUE)
+     return(Multi)    
+  }
    
   
   require(bigmemory)
   require(biganalytics)
   options(bigmemory.allow.dimnames=TRUE)
+  BinExtension <- substr(tempFname,nchar(tempFname)-3,nchar(tempFname))
+  if(BinExtension != ".bin") {
+     print("Use a filename with a .bin extension")
+     print(" if the file does not exist, it will be created from data.txt")
+     stop(" Filename must have a .bin extension")
+  }
+  ###########  check that we have a single valued data ###
+  FileType <- isMultiValue(Directory)
+  if(FileType == TRUE) {
+    print(" this function only works on single value files")
+    print(" it does not work on multi value files")
+    print(" the multi value version of data.txt can be read")
+    print(" with the function readBerkeleyData")
+    stop("data.txt is a multi valued file")
+  }
   dname <- sub("bin","desc",tempFname)
   Tfile <- file.path(Directory,tempFname, fsep =.Platform$file.sep)
   if(file.exists(Tfile)){
