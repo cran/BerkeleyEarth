@@ -45,7 +45,7 @@ readAsArray <- function(Directory , filename = "data.txt" ){
     Data[D[i,"Id"],as.integer(dat[1]),as.integer(dat[2])] <- D[i,"Temp"]  
   }
   
-  removeNaStations(Data)
+  Data <- removeNaStations(Data)
   return(Data)
   
 }

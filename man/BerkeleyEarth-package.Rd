@@ -16,8 +16,8 @@
 \tabular{ll}{
 Package: \tab BerkeleyEarth\cr
 Type: \tab Package\cr
-Version: \tab 1.6\cr
-Date: \tab 2012-02-20\cr
+Version: \tab 1.7\cr
+Date: \tab 2012-04-27\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab FALSE\cr
@@ -79,7 +79,8 @@ LazyData: \tab FALSE\cr
  data with NA where there are missing months, so they consume more memory.
  \code{readBerkeleyTemp} takes between 2-3 hours to reprocess the data,
  but this only done one time. Subsequent calls to the function give
- immediate access to the file backed matrix. 
+ immediate access to the file backed matrix. readBerkeleyTemp was
+ removed in version 1.7. 
  
  
  }
