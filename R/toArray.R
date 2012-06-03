@@ -1,5 +1,7 @@
 
-toArray <- function(dataIn, startYear=1900, endYear = 2011){ 
+toArray <- function(dataIn, startYear=1900, endYear = 2011){
+  
+  
  
  indexGen <- function(dataLine,minYear){  
    Year <- (dataLine[2] %/% 1  )  
@@ -7,7 +9,7 @@ toArray <- function(dataIn, startYear=1900, endYear = 2011){
    Month <- round(Frac*12+ .5)   
    return( c(  Month  , Year-minYear) )
  }
-  
+ 
  if(sum(c("Id","Date","Temp") %in% colnames(dataIn)) != 3) stop("wrong column names")
  D <- dataIn[,c("Id","Date","Temp")]
  D <- D[which(D[,2] >= startYear &  D[,2] < endYear +1),]
